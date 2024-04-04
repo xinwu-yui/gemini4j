@@ -4,6 +4,7 @@ import com.google.common.collect.Lists;
 import com.yuixin.gemini4j.dto.TextOnlyReq;
 import com.yuixin.gemini4j.dto.TextOnlyResp;
 import com.yuixin.gemini4j.dto.inner.Content;
+import com.yuixin.gemini4j.dto.inner.GenerationConfig;
 import com.yuixin.gemini4j.dto.inner.Part;
 import com.yuixin.gemini4j.util.GsonUtil;
 import com.yuixin.gemini4j.util.HttpUtil;
@@ -23,11 +24,11 @@ import java.util.List;
 public class GeminiTextOnlyService {
 
     /**
-     * 纯文本生成
+     * text only generate
      * @param text
      * @return
      */
-    public TextOnlyResp generate(String url, String text) {
+    public TextOnlyResp generate(String url, String text, GenerationConfig generationConfig) {
         if (StringUtils.isBlank(text)) {
             return null;
         }
@@ -39,6 +40,7 @@ public class GeminiTextOnlyService {
         contents.add(content);
         TextOnlyReq req = new TextOnlyReq();
         req.setContents(contents);
+        req.setGenerationConfig(generationConfig);
         String responseJsonString = HttpUtil.postJsonString(url, GsonUtil.toJsonString(req));
         if (StringUtils.isBlank(responseJsonString)) {
             return null;

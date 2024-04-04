@@ -11,8 +11,4 @@ import com.yuixin.gemini4j.service.GeminiTextOnlyService;
  * @description:
  */
 public class TextOnlytest {
-    public static void main(String[] args) {
-        TextOnlyResp generate = new GeminiTextOnlyService().generate("http://baidu.com", "111");
-        System.out.println(generate);
-    }
 }

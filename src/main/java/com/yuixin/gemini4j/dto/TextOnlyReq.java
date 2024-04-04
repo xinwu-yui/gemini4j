@@ -1,6 +1,7 @@
 package com.yuixin.gemini4j.dto;
 
 import com.yuixin.gemini4j.dto.inner.Content;
+import com.yuixin.gemini4j.dto.inner.GenerationConfig;
 import lombok.Data;
 import java.util.List;
 
@@ -15,8 +16,12 @@ import java.util.List;
 public class TextOnlyReq {
 
     /**
-     * 内容
+     * content list
      */
     private List<Content> contents;
 
+    /**
+     * config
+     */
+    private GenerationConfig generationConfig;
 }
